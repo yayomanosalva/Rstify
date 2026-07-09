@@ -10,29 +10,15 @@ import { generateRoutes } from './src/cli/generators/routes';
 
 const { bold, green, cyan, dim } = (await import('kleur')).default;
 
-function readDirRecursive(dir: string): string[] {
-  const entries = readdirSync(dir, { withFileTypes: true });
-  const files: string[] = [];
-  for (const entry of entries) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...readDirRecursive(full));
-    } else {
-      files.push(full);
-    }
-  }
-  return files;
-}
-
 import { readdirSync } from 'fs';
 
 async function main() {
   const args = process.argv.slice(2);
   const useDefaults = args.includes('--defaults') || args.includes('-d');
-  const projectNameArg = args
-    .find((a) => !a.startsWith('-'))
-    ?.replace(/[^a-z0-9_-]/gi, '-')
-    .toLowerCase();
+  const rawPath = args.find((a) => !a.startsWith('-'));
+  const projectNameArg = rawPath
+    ? rawPath.split('/').pop()?.split('\\').pop()?.replace(/[^a-z0-9_-]/gi, '-').toLowerCase()
+    : undefined;
 
   console.log();
   console.log(bold().cyan('  ╭─────────────────────────────╮'));
@@ -52,7 +38,9 @@ async function main() {
     answers = await runPrompts(projectNameArg);
   }
 
-  const targetDir = resolve(process.cwd(), answers.projectName);
+  const targetDir = rawPath?.startsWith('/')
+    ? resolve(rawPath)
+    : resolve(process.cwd(), answers.projectName);
 
   if (existsSync(targetDir)) {
     console.error(dim(`  ⚠ Directory "${answers.projectName}" already exists.`));
