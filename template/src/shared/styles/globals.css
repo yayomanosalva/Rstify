@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --font-size-display-xl: 4.5rem;
+  --font-size-display-lg: 3.75rem;
+  --font-size-display-md: 3rem;
+  --font-size-display-sm: 2.25rem;
+
+  --font-size-h1: 2.25rem;
+  --font-size-h2: 1.875rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+
+  --font-size-xl: 1.125rem;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+:root {
+  --color-background: 30 25% 98%;
+  --color-foreground: 222 20% 25%;
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 222 20% 25%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 222 20% 25%;
+  --color-primary: 217 60% 55%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-secondary: 210 20% 96%;
+  --color-secondary-foreground: 222 20% 35%;
+  --color-muted: 210 20% 96%;
+  --color-muted-foreground: 215 16% 47%;
+  --color-accent: 210 25% 97%;
+  --color-accent-foreground: 222 20% 25%;
+  --color-destructive: 0 70% 65%;
+  --color-destructive-foreground: 0 0% 100%;
+  --color-border: 214 20% 92%;
+  --color-input: 214 20% 92%;
+  --color-ring: 217 60% 55%;
+  --radius: 0.625rem;
+
+  --color-success: 142 50% 55%;
+  --color-warning: 38 85% 60%;
+  --color-info: 199 70% 60%;
+
+  --sidebar-background: 30 25% 98%;
+  --sidebar-foreground: 222 20% 35%;
+  --sidebar-primary: 217 60% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 20% 96%;
+  --sidebar-accent-foreground: 222 20% 25%;
+  --sidebar-border: 214 20% 92%;
+  --sidebar-ring: 217 60% 55%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: 222 20% 12%;
+    --color-foreground: 210 20% 95%;
+    --color-card: 222 18% 16%;
+    --color-card-foreground: 210 20% 95%;
+    --color-popover: 222 18% 16%;
+    --color-popover-foreground: 210 20% 95%;
+    --color-primary: 217 55% 60%;
+    --color-primary-foreground: 0 0% 100%;
+    --color-secondary: 222 15% 20%;
+    --color-secondary-foreground: 210 20% 95%;
+    --color-muted: 222 15% 20%;
+    --color-muted-foreground: 215 15% 60%;
+    --color-accent: 222 15% 22%;
+    --color-accent-foreground: 210 20% 95%;
+    --color-destructive: 0 55% 55%;
+    --color-destructive-foreground: 0 0% 100%;
+    --color-border: 222 15% 22%;
+    --color-input: 222 15% 22%;
+    --color-ring: 217 55% 60%;
+
+    --sidebar-background: 222 20% 10%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 217 55% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 15% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 222 15% 20%;
+    --sidebar-ring: 217 55% 60%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
