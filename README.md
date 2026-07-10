@@ -101,6 +101,29 @@ bun run rsx:module <name>  # Generate a new feature
 bun run rsx:view <feature> <view>  # Generate a new view
 ```
 
+## GitHub Template
+
+Este repo está configurado como **GitHub Template**. Haz clic en "Use this template" en la página del repo para crear un nuevo proyecto sin historial.
+
+**Para activar el template:**
+1. Ve a `Settings > General > Template repository`
+2. Marca el checkbox
+
+## Branch Strategy
+
+```
+main              # Estable, release-ready (GitHub Template)
+  └── develop     # Integración de features activas
+        ├── feature/*    # Nuevas features
+        ├── fix/*        # Bug fixes
+        ├── docs/*       # Documentación
+        └── cli/*        # Mejoras del CLI
+```
+
+## ROADMAP
+
+Ver [ROADMAP.md](./ROADMAP.md) para el plan de desarrollo completo y tareas pendientes.
+
 ## License
 
 MIT
